@@ -1428,6 +1428,8 @@
             <ul class="MuiList-root MuiList-padding css-h4y409-MuiList-root">
               <li class="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root">
                 <div
+                  onclick="window.location.href='http://localhost:3000/Security/login'"
+                  id = "login-link"
                   class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                   tabindex="0" role="button">
                   <div class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"><svg
@@ -1444,6 +1446,8 @@
               </li>
               <li class="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root">
                 <div
+                onclick="window.location.href='http://localhost:3000/Security/register'"
+                id = "register-link"
                   class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                   tabindex="0" role="button">
                   <div class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"><svg
@@ -1500,40 +1504,54 @@
               href="http://localhost:3000/Security/register">¿No tienes cuenta?</a>
 
             <div class="MuiBox-root css-1tfqlfq" ><button onclick="
-            var users = [{'email':'email1@gmail.com','name':'Usuario1','role':'socio','contraseña':'12345'},{'email':'usuario2@gmail.com','name':'Usuario2','role':'admin','contraseña':'23456'},{'email':'usuario3@gmail.com','name':'Usuario3','role':'usuario','contraseña':'34567'}];
-            var email=document.getElementById(':Rlaiem:').value
-            var password = document.getElementById(':Rtaiem:').value
-            var found=false
-            var passcorrect=false
-            if(email===''){
-              alert('El campo Email no puede estar vacio')
-              return
-            }
-            if(password===''){
-              alert('El campo Contraseña no puede estar vacio')
-              return
-            }
-            for(user in users){
-              if (user.email===email){
-                found = true
-                if(user.contraseña === password){
-                  passcorrect=true
-                }
-              }
-            }
-            if(found){
-              if(passcorrect){
-                document.getElementById(':Ryaiem:').innerHTML='Ha ingresado correctamente'
-              }else{
-                alert('La contraseña no es válida. Revise su contraseña e intente nuevamente')
-              }
-            }else{
-              alert('el usuario no es válido. Revise su Email e intente nuevamente')
-            }"
+
+var users = [
+  { email: 'email1@gmail.com', name: 'Usuario1', role: 'socio', contraseña: '12345' },
+  { email: 'usuario2@gmail.com', name: 'Usuario2', role: 'admin', contraseña: '23456' },
+  { email: 'usuario3@gmail.com', name: 'Usuario3', role: 'usuario', contraseña: '34567' }
+];
+
+var email = document.getElementById(':Rlaiem:').value;
+var password = document.getElementById(':Rtaiem:').value;
+var found = false;
+var passcorrect = false;
+if (email === '') {
+  alert('El campo Email no puede estar vacío');
+  return;
+}
+
+if (password === '') {
+  alert('El campo Contraseña no puede estar vacío');
+  return;
+}
+
+for (var user of users) {
+  console.log(user.email);
+  console.log(email);
+
+  if (user.email === email) {
+    found = true;
+    console.log('found');
+
+    if (user.contraseña === password) {
+      passcorrect = true;
+    }
+  }
+}
+
+if (found) {
+  if (passcorrect) {
+    document.getElementById(':Ryaiem:').innerHTML = 'Ha ingresado correctamente';
+  } else {
+    document.getElementById(':Ryaiem:').innerHTML= 'La contraseña no es válida. Revise su contraseña e intente nuevamente'
+  }
+} else {
+  document.getElementById(':Ryaiem:').innerHTML= 'El usuario no es válido. Revise su Email e intente nuevamente'
+}"
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
                 tabindex="0" type="button" style="background-color:#1976d2;width:100%">Entrar<span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"></span></button></div>
-                  <p id=":Ryaiem:":"></p>
+                  <p id=":Ryaiem:"></p>
           </div>
         </div>
       </main>
